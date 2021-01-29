@@ -1,0 +1,19 @@
+{
+  "name": "importkeyboard",
+  "version": "0.0.1",
+  "description": "Tool for using server keyboard at the client side",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"None\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YushchenkoAndrew/importKeyboard.git"
+  },
+  "author": "Andrew Y",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YushchenkoAndrew/importKeyboard/issues"
+  },
+  "homepage": "https://github.com/YushchenkoAndrew/importKeyboard#readme"
+}
