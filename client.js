@@ -1,8 +1,5 @@
-// const { StringDecoder } = require("string_decoder");
-// const robot = require("robotjs");
-// const decoder = new StringDecoder("utf-8");
+const ks = require("node-key-sender");
 
-// robot.typeString(decoder.write(Buffer.from([0x4c])));
 const http = require("http");
 const PORT = 1337;
 
@@ -14,7 +11,9 @@ const server = http.createServer((req, res) => {
   });
 
   req.on("end", () => {
-    console.log("Received:", JSON.parse(data));
+    data = JSON.parse(data);
+    ks.sendText(data.key);
+    console.log("Received:", data);
   });
 
   res.statusCode = 200;

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Tool for using server keyboard at the client side",
   "main": "server.js",
+  "bin": "client.js",
   "scripts": {
     "test": "echo \"None\"",
     "server": "node server.js",
@@ -19,6 +20,6 @@
   },
   "homepage": "https://github.com/YushchenkoAndrew/importKeyboard#readme",
   "dependencies": {
-    "robotjs": "^0.6.0"
+    "node-key-sender": "^1.0.11"
   }
 }
