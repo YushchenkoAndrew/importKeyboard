@@ -1,7 +1,17 @@
-const ks = require("node-key-sender");
-
+const { exec } = require("child_process");
 const http = require("http");
+
 const PORT = 1337;
+const SCRIPT = "pressKey.py";
+
+function execute(...params) {
+  return new Promise((resolve, reject) => {
+    exec(`python ${SCRIPT} ${params.map((key) => `'${key}'`).join(" ")}`, (err, stdout, stderr) => {
+      if (err) reject(err, stdout, stderr);
+      else resolve(stdout, stderr);
+    });
+  });
+}
 
 const server = http.createServer((req, res) => {
   let data = "";
@@ -11,8 +21,8 @@ const server = http.createServer((req, res) => {
   });
 
   req.on("end", () => {
-    data = JSON.parse(data);
-    ks.sendText(data.key);
+    const { key } = JSON.parse(data);
+    execute(key);
     console.log("Received:", data);
   });
 
